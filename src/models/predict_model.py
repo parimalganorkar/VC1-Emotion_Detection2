@@ -14,7 +14,7 @@ logging.basicConfig(
 )
 
 MODEL_PATH = "models/random_forest_model.pkl"
-TEST_DATA_PATH = "data/interim/test_bow.csv"
+TEST_DATA_PATH = "data/interim/test_tfidf.csv"
 PREDICTIONS_OUTPUT_PATH = "data/eval/predictions.csv"
 METRICS_OUTPUT_PATH = "metrics.json"
 

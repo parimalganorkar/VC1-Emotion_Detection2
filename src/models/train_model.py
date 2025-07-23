@@ -66,7 +66,7 @@ def main() -> None:
         n_estimators = params['model_training']['n_estimators']
         max_depth = params['model_training']['max_depth']
 
-        train_data = load_train_data("data/interim/train_bow.csv")
+        train_data = load_train_data("data/interim/train_tfidf.csv")
         x_train = train_data.drop(columns=['label']).values
         y_train = train_data['label'].values
 

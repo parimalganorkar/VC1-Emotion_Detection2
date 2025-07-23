@@ -4,7 +4,7 @@ import os
 import yaml
 import logging
 from typing import Tuple
-from sklearn.feature_extraction.text import CountVectorizer # type: ignore
+from sklearn.feature_extraction.text import TfidfVectorizer # type: ignore
 
 # Configure logging
 logging.basicConfig(
@@ -52,10 +52,10 @@ def extract_features_and_labels(
 
 def vectorize_text(
     X_train: np.ndarray, X_test: np.ndarray, max_features: int
-) -> Tuple[np.ndarray, np.ndarray, CountVectorizer]:
+) -> Tuple[np.ndarray, np.ndarray, TfidfVectorizer]:
     """Apply Bag of Words (CountVectorizer) to train and test data."""
     try:
-        vectorizer = CountVectorizer(max_features=max_features)
+        vectorizer = TfidfVectorizer(max_features=max_features)
         X_train_bow = vectorizer.fit_transform(X_train)
         X_test_bow = vectorizer.transform(X_test)
         logging.info("Text vectorization completed using Bag of Words")
@@ -76,8 +76,8 @@ def save_features(
         train_df['label'] = y_train
         test_df = pd.DataFrame(X_test_bow.toarray())
         test_df['label'] = y_test
-        train_path = os.path.join(output_dir, "train_bow.csv")
-        test_path = os.path.join(output_dir, "test_bow.csv")
+        train_path = os.path.join(output_dir, "train_tfidf.csv")
+        test_path = os.path.join(output_dir, "test_tfidf.csv")
         train_df.to_csv(train_path, index=False)
         test_df.to_csv(test_path, index=False)
         logging.info(f"Saved feature data to {train_path} and {test_path}")
