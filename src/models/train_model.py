@@ -62,7 +62,7 @@ def save_model(model: Any, model_path: str) -> None:
 def main() -> None:
     """Main function to orchestrate model training."""
     try:
-        params = load_params('parameter.yaml')
+        params = load_params('params.yaml')
         n_estimators = params['model_training']['n_estimators']
         max_depth = params['model_training']['max_depth']
 

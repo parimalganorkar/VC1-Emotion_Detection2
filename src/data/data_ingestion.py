@@ -78,7 +78,7 @@ def save_data(train_data: DataFrame, test_data: DataFrame, output_dir: str) -> N
 def main() -> None:
     """Main function to orchestrate data ingestion."""
     try:
-        params = load_params('parameter.yaml')
+        params = load_params('params.yaml')
         test_size = params['data_ingestion']['test_size']
         df = load_dataset('https://raw.githubusercontent.com/campusx-official/jupyter-masterclass/main/tweet_emotions.csv')
         processed_df = preprocess_data(df)

@@ -88,7 +88,7 @@ def save_features(
 def main() -> None:
     """Main function to orchestrate feature engineering."""
     try:
-        params = load_params('parameter.yaml')
+        params = load_params('params.yaml')
         max_features = params['feature_engineering']['max_features']
         train_data, test_data = load_data("data/processed/train.csv", "data/processed/test.csv")
         X_train, y_train, X_test, y_test = extract_features_and_labels(train_data, test_data)
